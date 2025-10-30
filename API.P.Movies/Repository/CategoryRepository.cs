@@ -41,12 +41,12 @@ namespace API.P.Movies.Repository
 
         public async Task<bool> DeleteCategoryAsync(int id)
         {
-            var category = GetCategoryAsync(id);
+            var category = await GetCategoryAsync(id);
             if (category == null)
             {
                 return false;
             }
-            _context.Categories.Remove(await category);
+            _context.Categories.Remove(category);
             await SaveAsync();
             return true;
         }
