@@ -7,7 +7,7 @@ namespace API.P.Movies.DAL.Models
         [Key]
         public virtual int Id { get; set; } //Primary Key
         public virtual DateTime CreatedDate { get; set; } //Fecha de creacion
-        public virtual DateTime UpdateDate { get; set; } //Fecha de actualizacion
+        public virtual DateTime? UpdateDate { get; set; } //Fecha de actualizacion
 
 
     }
