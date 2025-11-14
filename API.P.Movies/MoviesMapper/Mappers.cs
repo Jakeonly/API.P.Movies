@@ -9,6 +9,8 @@ namespace API.P.Movies.MoviesMapper
         public Mappers()
         {
             CreateMap<Category, CategoryDto>().ReverseMap();
+            CreateMap<Category, CategoryCreateDto>().ReverseMap();
+
 
         }
     }

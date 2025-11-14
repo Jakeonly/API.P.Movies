@@ -16,27 +16,24 @@ namespace API.P.Movies.Repository
 
         public async Task<bool> CategoryExistsByIdAsync(int id)
         {
-            var categoryExists = await _context.Categories
+            return await _context.Categories
                 .AsNoTracking()
                 .AnyAsync(c => c.Id == id);
-            return categoryExists;
         }
 
         public async Task<bool> CategoryExistsByNameAsync(string name)
         {
-            var categoryExists = await _context.Categories
+            return await _context.Categories
                 .AsNoTracking()
                 .AnyAsync(c => c.Name == name);
-            return categoryExists;
         }
 
         public async Task<bool> CreateCategoryAsync(Category category)
         {
             category.CreatedDate = DateTime.UtcNow;
 
-            await _context.Categories.AddAsync(category);
-            await SaveAsync();
-            return true;
+            _context.Categories.Add(category);
+            return await SaveAsync();
         }
 
         public async Task<bool> DeleteCategoryAsync(int id)
@@ -47,17 +44,15 @@ namespace API.P.Movies.Repository
                 return false;
             }
             _context.Categories.Remove(category);
-            await SaveAsync();
-            return true;
+            return await SaveAsync();
         }
 
         public async Task<ICollection<Category>> GetCategoriesAsync()
         {
-            var categories = await _context.Categories
+            return await _context.Categories
                 .AsNoTracking()
                 .OrderBy(c => c.Name)
                 .ToListAsync();
-            return categories;
         }
 
         public async Task<Category> GetCategoryAsync(int id)
@@ -73,8 +68,7 @@ namespace API.P.Movies.Repository
         {
             category.UpdateDate = DateTime.UtcNow;
             _context.Categories.Update(category);
-            await SaveAsync();
-            return true;
+            return await SaveAsync();
         }
         #region Private Methods
         private async Task<bool> SaveAsync()
