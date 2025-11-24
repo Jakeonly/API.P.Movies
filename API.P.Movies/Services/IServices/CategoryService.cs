@@ -51,7 +51,23 @@ namespace API.P.Movies.Services.IServices
 
         public async Task<bool> DeleteCategoryAsync(int id)
         {
-            throw new NotImplementedException();
+            //Verificar si la categoría existe
+            var existingCategory = await _categoryRepository.GetCategoryAsync(id);
+
+            if (existingCategory == null)
+            {
+                throw new InvalidOperationException($"No se encontró la categoría con Id {id}");
+            }
+
+            //Borrar la categoría en la base de datos
+            var categoryDeleted = await _categoryRepository.DeleteCategoryAsync(id);
+
+            if (!categoryDeleted)
+            {
+                throw new InvalidOperationException("Ocurrió un error al actualizar la categoría");
+            }
+
+            return categoryDeleted;
         }
 
         public async Task<ICollection<CategoryDto>> GetCategoriesAsync()
