@@ -12,6 +12,7 @@ namespace API.P.Movies.DAL
 
         //Todos los DBsets
         public DbSet<Category> Categories { get; set; }
+        public DbSet<Movie> Movies { get; set; }
 
     }
 }
