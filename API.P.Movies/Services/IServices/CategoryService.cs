@@ -64,7 +64,7 @@ namespace API.P.Movies.Services.IServices
 
             if (!categoryDeleted)
             {
-                throw new InvalidOperationException("Ocurrió un error al actualizar la categoría");
+                throw new InvalidOperationException("Ocurrió un error al eliminar la categoría");
             }
 
             return categoryDeleted;
