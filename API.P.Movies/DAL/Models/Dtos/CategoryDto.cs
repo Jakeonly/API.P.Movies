@@ -9,6 +9,6 @@ namespace API.P.Movies.DAL.Models.Dtos
         [MaxLength(100, ErrorMessage = "El nombre de la categoria no puede exceder los 100 caracteres")]
         public string Name { get; set; }
         public DateTime CreatedDate { get; set; }
-        public DateTime? UpdatedDate { get; set; }
+        public DateTime? UpdateDate { get; set; }
     }
 }

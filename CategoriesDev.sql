@@ -1,0 +1,12 @@
+﻿INSERT INTO Categories (Name, CreatedDate) VALUES 
+('Action', CURRENT_TIMESTAMP),
+('Drama', CURRENT_TIMESTAMP),
+('Romance', CURRENT_TIMESTAMP),
+('Thriller', CURRENT_TIMESTAMP),
+('Kids', CURRENT_TIMESTAMP),
+('Comedy', CURRENT_TIMESTAMP),
+('Documentals', CURRENT_TIMESTAMP);
+
+SELECT *FROM Categories
+
+TRUNCATE TABLE Categories
