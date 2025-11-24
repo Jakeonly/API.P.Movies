@@ -16,7 +16,7 @@ namespace API.P.Movies.DAL.Models.Dtos
         public String Description { get; set; }
         //=======================================================================================================//
         [Required(ErrorMessage = "La clasificación de la pelicula es obligatoria")]
-        [MaxLength(50, ErrorMessage = "La descripción de la pelicula no puede exceder los 50 caracteres")]
+        [MaxLength(10, ErrorMessage = "La descripción de la pelicula no puede exceder los 10 caracteres")]
         public String Clasification { get; set; }
         //=======================================================================================================//
     }

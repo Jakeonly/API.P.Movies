@@ -57,7 +57,7 @@ namespace API.P.Movies.Services.IServices
             }
             //Verificar si el nombre no esta en uso ya
             var movieExistsByName = await _movieRepository.MovieExistsByNameAsync(movieCreateUpdateDto.Name);
-            if (!movieExistsByName)
+            if (movieExistsByName)
             {
                 throw new InvalidOperationException($"Ya existe una pelicula con el nombre:{movieCreateUpdateDto.Name}");
             }
